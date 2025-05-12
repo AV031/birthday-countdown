@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Countdown for Shaku</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Great Vibes', cursive;
+    }
+
+    .birthdayimg {
+      background-image: url('https://cdn.pixabay.com/photo/2018/02/23/21/29/roses-frame-3176667_960_720.jpg');
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      color: red;
+      font-size: 35px;
+    }
+
+    .topleft {
+      position: absolute;
+      color: purple;
+      top: 0;
+      left: 12px;
+    }
+
+    .bottomleft {
+      position: absolute;
+      color: red;
+      bottom: 0;
+      left: 18px;
+    }
+
+    .middle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    #amx {
+      font-size: 80px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    hr {
+      margin: auto;
+      width: 40%;
+    }
+  </style>
+</head>
+<body>
+  <div class="birthdayimg">
+    <div class="topleft">
+      <p>For My Love</p>
+    </div>
+    <div class="middle">
+      <h1>Ready for the Surprise ?</h1>
+      <hr>
+      <p id="amx"></p>
+    </div>
+    <div class="bottomleft">
+      <p>Created by Anant</p>
+    </div>
+  </div>
+
+  <script>
+    var countDownDate = new Date("May 25, 2025 00:01:00").getTime();
+
+    var countdownfunction = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("amx").innerHTML = days + "D " + hours + "H "
+      + minutes + "M " + seconds + "S ";
+
+      if (distance < 0) {
+        clearInterval(countdownfunction);
+        document.getElementById("amx").innerHTML = "HAPPY BIRTHDAY SHAKU";
+        window.location = "https://youtu.be/Z51LcTU1j-w?si=iwRxASpxfF2BZjyT";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
